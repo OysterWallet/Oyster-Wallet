@@ -1,0 +1,11 @@
+{
+  "extends": ["../../tsconfig.base.json", "./.wxt/tsconfig.json"],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": ["ES2022", "DOM"],
+    // Kept on in core, where absent and undefined differ. For React props it
+    // only forces noise at every call site.
+    "exactOptionalPropertyTypes": false
+  },
+  "include": [".wxt/wxt.d.ts", "entrypoints", "src", "wxt.config.ts"]
+}

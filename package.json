@@ -1,0 +1,17 @@
+{
+  "name": "pearl-wallet",
+  "license": "GPL-3.0-or-later",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck",
+    "dev": "pnpm --filter @pearl-wallet/extension dev"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  },
+  "packageManager": "pnpm@10.29.2"
+}

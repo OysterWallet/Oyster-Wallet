@@ -1,0 +1,283 @@
+/* Bundled from Google Fonts (latin subset), SIL OFL 1.1: see public/fonts/OFL-*.txt.
+   Served from the extension itself, so opening the wallet never contacts a font CDN. */
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/ibm-plex-sans-var.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/ibm-plex-mono-400.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/ibm-plex-mono-500.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Newsreader";
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url("/fonts/newsreader-var.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Tokens lifted from the design canvas (light and *Dark screens). */
+:root {
+  --bg: #fbfbfd;
+  --surface: #ffffff;
+  --surface-2: #eef0f4;
+  --text: #14161d;
+  --text-2: #3d4350;
+  --text-3: #5b6272;
+  --border: #d3d8e1;
+  --divider: #e4e7ed;
+  --accent: #1f6f6a;
+  --buy: #14804a;
+  --buy-hover: #0f6b3d;
+  --sell: #c02b24;
+  --sell-hover: #a3231d;
+  --on-trade: #ffffff;
+  --accent-hover: #16524e;
+  --on-accent: #ffffff;
+  --accent-soft: #d8e8e6;
+  --accent-soft-text: #123f3c;
+  --warn-bg: #f2e5d2;
+  --warn-text: #7d4e12;
+  --danger-bg: #f5dfdb;
+  --danger-text: #a3352b;
+  --toggle-off: #d3d8e1;
+
+  --serif: Newsreader, "Iowan Old Style", Georgia, serif;
+  --sans: "IBM Plex Sans", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  color-scheme: light;
+}
+
+/* Dark palette: follows the system unless the user picked a theme. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #13161d;
+    --surface: #1a1e27;
+    --surface-2: #232832;
+    --text: #e8eaf0;
+    --text-2: #c2c7d3;
+    --text-3: #969eae;
+    --border: #2f3542;
+    --divider: #232832;
+    --accent: #63b8b0;
+    --accent-hover: #8fd3cc;
+    --on-accent: #08201e;
+    --accent-soft: #17332f;
+    --accent-soft-text: #a9dcd6;
+    --warn-bg: #33260f;
+    --warn-text: #e0ab63;
+    --danger-bg: #3b1f1c;
+    --danger-text: #ec9085;
+    --toggle-off: #2f3542;
+    --buy: #22a465;
+    --buy-hover: #2bbd76;
+    --sell: #d8453d;
+    --sell-hover: #e65a51;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #13161d;
+  --surface: #1a1e27;
+  --surface-2: #232832;
+  --text: #e8eaf0;
+  --text-2: #c2c7d3;
+  --text-3: #969eae;
+  --border: #2f3542;
+  --divider: #232832;
+  --accent: #63b8b0;
+  --accent-hover: #8fd3cc;
+  --on-accent: #08201e;
+  --accent-soft: #17332f;
+  --accent-soft-text: #a9dcd6;
+  --warn-bg: #33260f;
+  --warn-text: #e0ab63;
+  --danger-bg: #3b1f1c;
+  --danger-text: #ec9085;
+  --toggle-off: #2f3542;
+  --buy: #22a465;
+  --buy-hover: #2bbd76;
+  --sell: #d8453d;
+  --sell-hover: #e65a51;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  width: 360px;
+  height: 600px;
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+button, input, textarea { font: inherit; color: inherit; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-hover); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.screen { width: 360px; height: 600px; display: flex; flex-direction: column; overflow: hidden; }
+/* In the side panel the window is the frame, not a fixed popup box: the body
+   itself has to give up its 360x600 and fill whatever width it is dragged to. */
+body.panel { width: 100%; height: 100vh; }
+body.panel #root { height: 100%; }
+body.panel .screen { width: 100%; height: 100vh; min-width: 300px; }
+.body { flex-grow: 1; display: flex; flex-direction: column; gap: 14px; padding: 20px; min-height: 0; overflow-y: auto; }
+.spacer { flex-grow: 1; }
+/* Content keeps its height and the body scrolls; nothing gets squeezed. */
+.body > * { flex-shrink: 0; }
+
+.header { display: flex; align-items: center; justify-content: space-between; height: 56px; padding: 0 6px; border-bottom: 1px solid var(--divider); flex-shrink: 0; }
+.header-title { font-size: 15px; font-weight: 600; }
+.icon-btn { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: none; background: transparent; color: var(--text); cursor: pointer; border-radius: 10px; }
+.icon-btn:hover { background: var(--surface-2); }
+
+.btn { display: flex; align-items: center; justify-content: center; gap: 8px; height: 48px; width: 100%; border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; flex-shrink: 0; border: 1px solid transparent; }
+.btn-primary { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.btn-primary:hover:not(:disabled) { background: var(--accent-hover); border-color: var(--accent-hover); }
+.btn-secondary { background: var(--surface); color: var(--text); border-color: var(--border); }
+.btn-secondary:hover:not(:disabled) { background: var(--surface-2); }
+.btn-ghost { background: transparent; color: var(--accent); height: 44px; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.row-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+
+h1.title { margin: 0; font-family: var(--serif); font-weight: 500; font-size: 24px; line-height: 1.15; letter-spacing: -0.01em; }
+p.lead { margin: 0; color: var(--text-2); font-size: 14px; }
+.label { font-size: 12px; font-weight: 600; color: var(--text-2); }
+.muted { color: var(--text-3); font-size: 12px; }
+.mono { font-family: var(--mono); }
+.eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); }
+
+.field { display: flex; flex-direction: column; gap: 6px; }
+.input { display: flex; align-items: center; gap: 8px; height: 46px; padding: 0 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
+.input:focus-within { border-color: var(--accent); }
+.input input { flex-grow: 1; min-width: 0; border: none; outline: none; background: transparent; font-size: 14px; }
+.input.invalid { border-color: var(--danger-text); }
+textarea.textarea { height: 112px; padding: 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); resize: none; outline: none; font-family: var(--mono); font-size: 13px; line-height: 1.6; }
+textarea.textarea:focus { border-color: var(--accent); }
+
+.callout { display: flex; gap: 10px; padding: 12px; border-radius: 10px; font-size: 12.5px; line-height: 1.45; }
+.callout svg { flex-shrink: 0; }
+.callout.info { background: var(--accent-soft); color: var(--accent-soft-text); }
+.callout.warn { background: var(--warn-bg); color: var(--warn-text); }
+.callout.danger { background: var(--danger-bg); color: var(--danger-text); }
+
+.chip { display: inline-flex; align-items: center; gap: 5px; height: 22px; padding: 0 8px; border-radius: 11px; font-family: var(--mono); font-size: 11px; white-space: nowrap; flex-shrink: 0; }
+.chip.info { background: var(--accent-soft); color: var(--accent-soft-text); }
+.chip.warn { background: var(--warn-bg); color: var(--warn-text); }
+
+.steps { display: flex; flex-direction: column; gap: 8px; }
+.steps-bar { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.steps-bar div { height: 3px; border-radius: 2px; background: var(--border); }
+.steps-bar div.on { background: var(--accent); }
+
+.card { border: 1px solid var(--border); border-radius: 12px; background: var(--surface); overflow: hidden; }
+.kv { display: flex; flex-direction: column; padding: 0 14px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+.kv > div { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--divider); }
+.kv > div:last-child { border-bottom: none; }
+.kv .k { color: var(--text-3); font-size: 13px; }
+.kv .v { text-align: right; font-family: var(--mono); font-size: 12.5px; word-break: break-all; }
+
+.list-row { display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 0 12px; color: var(--text); background: transparent; border: none; border-bottom: 1px solid var(--divider); width: 100%; text-align: left; cursor: pointer; }
+.list-row:last-child { border-bottom: none; }
+.list-row:hover { background: var(--surface-2); }
+.list-row .main { flex-grow: 1; display: flex; flex-direction: column; min-width: 0; }
+.list-row .t { font-size: 13.5px; font-weight: 500; display: flex; gap: 6px; align-items: center; }
+.list-row .s { font-size: 12px; color: var(--text-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dot-icon { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 17px; background: var(--surface-2); color: var(--text-2); flex-shrink: 0; }
+.pos { color: var(--accent); }
+
+/* The four round actions on the home screen. The ring lifts under the
+   pointer and presses in on click, so the button feels like a button; buy
+   and sell carry their own colours, because which way a trade goes is the
+   thing worth seeing before you tap. */
+.action { display: flex; flex-direction: column; align-items: center; gap: 5px; border: none; background: transparent; padding: 0; font-size: 12px; font-weight: 500; color: var(--text); cursor: pointer; }
+.action .ring { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 24px;
+  border: 1px solid var(--border); background: var(--surface); color: var(--text);
+  transition: transform 160ms cubic-bezier(0.32, 0.72, 0.35, 1), background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease; }
+.action:hover:not(:disabled) .ring { transform: translateY(-2px); box-shadow: 0 5px 14px rgba(0, 0, 0, 0.22); }
+.action:active:not(:disabled) .ring { transform: translateY(0) scale(0.95); box-shadow: none; }
+.action:focus-visible .ring { outline: 2px solid var(--accent); outline-offset: 2px; }
+.action.buy .ring { background: var(--buy); border-color: var(--buy); color: var(--on-trade); }
+.action.buy:hover:not(:disabled) .ring { background: var(--buy-hover); border-color: var(--buy-hover); }
+.action.sell .ring { background: var(--sell); border-color: var(--sell); color: var(--on-trade); }
+.action.sell:hover:not(:disabled) .ring { background: var(--sell-hover); border-color: var(--sell-hover); }
+
+.action:disabled { color: var(--text-3); cursor: not-allowed; }
+.action:disabled .ring { background: var(--surface-2); border-color: var(--divider); color: var(--text-3); filter: none; }
+
+/* The small square buttons that pick one of a set: chart ranges, line or
+   candles. Selected keeps its colour under the pointer, the rest warm up. */
+.pill { height: 26px; padding: 0 10px; border: none; border-radius: 8px; cursor: pointer; font-size: 11.5px; font-weight: 500;
+  background: transparent; color: var(--text-3); transition: background-color 140ms ease, color 140ms ease; }
+.pill:hover:not(:disabled) { background: var(--surface-2); color: var(--text-2); }
+.pill:active:not(:disabled) { background: var(--divider); }
+.pill[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent-soft-text); font-weight: 600; }
+.pill[aria-pressed="true"]:hover:not(:disabled) { background: var(--accent-soft); color: var(--accent-soft-text); }
+.pill:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* Scrollbars: thin, no track, and the same greys as everything else. They
+   only darken while the pointer is over them, so a resting screen is calm.
+   Chrome ignores ::-webkit-scrollbar as soon as scrollbar-width is set, and
+   its "thin" is still 10px, so the standard properties are left to Firefox. */
+@supports (-moz-appearance: none) {
+  * { scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+}
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
+::-webkit-scrollbar-corner { background: transparent; }
+
+/* Pearl's mark is a black glyph on white. The light theme wants the opposite,
+   so it inverts to a white glyph on a black disc; the dark theme keeps it. */
+.prl-mark { filter: invert(1); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .prl-mark { filter: none; } }
+:root[data-theme="dark"] .prl-mark { filter: none; }
+:root[data-theme="light"] .prl-mark { filter: invert(1); }
+
+.tabbar { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); height: 60px; border-top: 1px solid var(--border); background: var(--bg); flex-shrink: 0; }
+.tabbar button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: var(--text-3); font-size: 11px; font-weight: 500; border: none; background: transparent; cursor: pointer;
+  transition: background-color 140ms ease, color 140ms ease; }
+.tabbar button.on { color: var(--accent); font-weight: 600; }
+/* Just a highlight: the tab you are on keeps its colour, the others warm up
+   under the pointer so the row feels answerable. */
+.tabbar button:hover:not(:disabled) { background: var(--surface-2); color: var(--text-2); }
+.tabbar button.on:hover:not(:disabled) { background: var(--surface-2); color: var(--accent); }
+.tabbar button:active:not(:disabled) { background: var(--divider); }
+.tabbar button:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* The knob slides rather than jumps, so the switch reads as one thing moving.
+   It travels 18px: 44 wide, less 3px of padding each side and its own 20. */
+.toggle { position: relative; width: 44px; height: 26px; border-radius: 13px; border: none; padding: 0; background: var(--toggle-off); cursor: pointer; flex-shrink: 0; transition: background-color 160ms ease; }
+.toggle[aria-pressed="true"] { background: var(--accent); }
+.toggle span { position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 10px; background: #ffffff; display: block; transition: transform 180ms cubic-bezier(0.32, 0.72, 0.35, 1); }
+.toggle[aria-pressed="true"] span { transform: translateX(18px); }
+
+.error-text { color: var(--danger-text); font-size: 12.5px; }
+
+@keyframes oy-bar { 0% { transform: translateX(-110%); } 100% { transform: translateX(290%); } }
+@keyframes oy-word { 0%, 55% { opacity: 0; transform: translateY(8px); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes oy-ring { 0% { transform: scale(1); opacity: .55; } 100% { transform: scale(1.75); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { [data-anim] { animation: none !important; } }

@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.output/
+.wxt/
+*.local
+.env
+.env.*
+!.env.example
+coverage/
+*.log
+.DS_Store
+# never commit key material or live vectors derived from a real seed
+secrets/
+*.seed
+vectors.local.json

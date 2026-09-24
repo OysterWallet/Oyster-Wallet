@@ -1,0 +1,8 @@
+{
+  "extends": "../../tsconfig.base.json",
+  // No DOM, no Node: core must run unchanged in the extension and React Native.
+  // Tests are excluded because they read vector files with node:fs; vitest
+  // type-strips them at run time.
+  "compilerOptions": { "lib": ["ES2022"], "types": [] },
+  "include": ["src"]
+}
