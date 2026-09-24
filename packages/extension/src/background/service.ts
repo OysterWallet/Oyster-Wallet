@@ -2067,7 +2067,10 @@ export class WalletService {
 
   private async settings(): Promise<Settings> {
     const raw = await this.platform.storage.get("settings");
-    return raw ? (JSON.parse(raw) as Settings) : { network: "mainnet" };
+    const s: Settings = raw ? (JSON.parse(raw) as Settings) : { network: "mainnet" };
+    // The relay's first address, before it had a domain: move saved copies to the default.
+    if (s.relayUrl === "https://167-99-2-180.sslip.io") delete s.relayUrl;
+    return s;
   }
 
   private async saveSettings(s: Settings): Promise<void> {

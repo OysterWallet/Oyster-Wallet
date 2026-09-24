@@ -35,8 +35,7 @@ export default defineConfig({
       "https://blockbook.pearlresearch.ai/*",
       "https://blockbook.testnet.pearlresearch.ai/*",
       // Oyster's relay: PRL price, charts, trading and cash.
-      // TODO(domain): swap for the real domain before publishing.
-      "https://167-99-2-180.sslip.io/*",
+      "https://relay.oysterwallet.app/*",
       ...(mode === "development" ? DEV_HOSTS : []),
     ],
   }),

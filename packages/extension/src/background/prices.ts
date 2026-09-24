@@ -17,12 +17,9 @@ import type { Candle, CashView, ChartRange, ChartView, DepthView, MarketTrade, D
 /**
  * Oyster's relay.
  *
- * The name encodes the address (sslip.io resolves it straight back), which
- * is fine while the server is young and has no domain of its own. Before
- * release this becomes a name we own, because encoding the IP means moving
- * the server would break every installed wallet.
+ * A name we own, so the server can move without breaking installed wallets.
  */
-export const DEFAULT_RELAY = "https://167-99-2-180.sslip.io";
+export const DEFAULT_RELAY = "https://relay.oysterwallet.app";
 
 const PRICE_TTL_MS = 60_000;
 const WRAPPED_TTL_MS = 60_000;

@@ -425,7 +425,7 @@ export function App() {
           canExportSeed={view ? !view.watchOnly : true}
           onBackup={() => go({ name: "backup-file" })} onRestore={() => go({ name: "restore-file" })}
           onBook={() => go({ name: "book" })}
-          relayLabel={(state?.relayUrl ?? "").replace(/^https?:\/\//, "").replace(/:\d+$/, "").slice(0, 18)}
+          relayLabel={(state?.relayUrl ?? "").replace(/^https?:\/\//, "").replace(/:\d+$/, "").slice(0, 22)}
           onRelay={() => go({ name: "relay" })}
           onUiMode={async (mode) => setState(await call({ type: "setUiMode", mode }))} />
       );
